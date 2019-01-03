@@ -1,0 +1,7 @@
+--- # This playbook will install WLP
+- hosts: liberty
+  become: no
+  connection: ssh
+  gather_facts: no
+  roles:
+  - wlp

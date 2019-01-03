@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  user: test
+  sudo: yes
+  gather_facts: no
+  tasks:
+    - name: Install telnet 
+      local_action: yum name=telnet state=installed 

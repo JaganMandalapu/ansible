@@ -1,0 +1,6 @@
+--- # This playbook is to install IBM IM
+- hosts: liberty
+  become: no
+  gather_facts: no
+  roles:
+  - iim

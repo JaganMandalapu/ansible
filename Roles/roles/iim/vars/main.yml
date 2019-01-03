@@ -1,0 +1,8 @@
+---
+iim_binary_location: /vagrant/IM
+iim_install_location: /opt/software/IBM/InstallationManager
+agent_data_location: /opt/software/IBM/AgentData
+tmp_dir: /tmp/IM
+# install_user: test
+iim_version: 1.8.7000.20170706_2137
+iim_binary_file: agent.installer.linux.gtk.x86_64_1.8.7000.20170706_2137.zip

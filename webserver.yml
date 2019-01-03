@@ -1,0 +1,30 @@
+---
+- hosts: apacheweb
+  connection: ssh
+  user: test
+  sudo: yes
+  tasks:
+   - name: Pre-task timestamp
+     command: date
+     register: pre_task
+   - debug: var=pre_task
+   - name: Install Apache
+     yum: pkg={{ item }} state=latest
+     with_items:
+       - httpd
+     notify: Start HTTPD
+   - name: Verify web service is running
+     command: systemctl status httpd
+     register: httpd_status
+   - debug: var=httpd_status
+   - name: Log a list of all packages
+     command: yum list installed
+   - name: Post-task timestamp
+     command: date 
+     register: post_task
+   - debug: var=post_task
+  handlers:
+     - name: Start HTTPD
+       service: name=httpd state=restarted
+       register: result
+     - debug: var=result

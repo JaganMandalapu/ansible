@@ -1,0 +1,11 @@
+---
+- hosts: apacheweb
+- use ssh
+- user test
+- use sudo
+- capture pre-task timestamp
+- install apache, telnet, lynx
+- start web service
+- verify web service is running
+- log a list of all packages
+- capture post-taks timestamp

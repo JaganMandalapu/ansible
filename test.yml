@@ -1,0 +1,15 @@
+---
+- hosts: apacheweb:debian
+  user: test
+  sudo: yes
+  vars:
+    first: Jagan
+    last: Mandalapu
+  tasks:
+    - name: Install the configuration file
+      template:
+        src: templates/test.conf.j2
+        dest: /home/test/test.conf
+        owner: test
+        group: test
+        mode: 750

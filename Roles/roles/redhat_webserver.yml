@@ -1,0 +1,6 @@
+---
+- hosts: apacheweb
+  user: test
+  sudo: yes
+  roles:
+  - { role: redhat_webservers, when: "ansible_os_family == 'RedHat'" }

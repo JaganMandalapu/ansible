@@ -1,0 +1,9 @@
+--- # Initial setup of hosts to install ansible and test user
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  connection: ssh
+  tasks:
+  - name: Install Ansible
+    package: name=ansible state=latest

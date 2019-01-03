@@ -1,0 +1,9 @@
+---
+- hosts: apacheweb
+  remote_user: test
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks:
+  - name: Install Telnet
+    dnf: name=telnet state=latest

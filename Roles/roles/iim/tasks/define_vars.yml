@@ -1,0 +1,5 @@
+---
+- name: Is the product already isntalled?
+  command: egrep {{ iim_version }} {{ agent_data_location }}/installed.xml
+  register: version_already_installed
+  ignore_errors: true 

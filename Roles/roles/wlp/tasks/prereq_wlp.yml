@@ -1,0 +1,24 @@
+---
+- name: Create WLP temp directory
+  file: path={{ tmp_dir }}/wlp state=directory mode=0755 owner=test
+
+- name: Create Java temp directory
+  file: path={{ tmp_dir }}/java state=directory mode=0755 owner=test
+
+- name: Create WLP installation directory
+  file: path={{ wlp_dir }} state=directory owner=test mode=0755
+
+- name: Create install logs directory
+  file: path={{ im_dir }}/logs state=directory mode=0755 owner=test
+
+- name: Extract WLP binaries 
+  unarchive:
+    src: "{{ wlp_repo }}"
+    dest: "{{ tmp_dir }}/wlp/"
+    copy: no
+
+- name: Extract Java binaries
+  unarchive:
+    src: "{{ java_repo }}"
+    dest: "{{ tmp_dir }}/java/"
+    copy: no

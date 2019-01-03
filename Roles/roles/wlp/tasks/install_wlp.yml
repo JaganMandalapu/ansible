@@ -1,0 +1,9 @@
+---
+- name: Install/Update WLP
+  command:
+    chdir={{ im_dir }}/eclipse/tools
+    {{ im_dir }}/eclipse/tools/imcl {{ state }} {{ java_product_id }}_{{ java_version }} {{ wlp_product_id }}_{{ wlp_version }} -repositories {{ tmp_dir }}/java,{{ tmp_dir }}/wlp -acceptLicense -installationDirectory {{ wlp_dir }} -sharedResourcesDirectory {{ im_share }}
+  register: cout
+  when: state == "install"
+  changed_when: (cout.stdout.find('Installed com.ibm.websphere.liberty.ND') != -1) and (cout.stdout.find('Installed com.ibm.java.jdk.v8') != -1)
+- debug: var=cout.stdout_lines

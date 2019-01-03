@@ -1,0 +1,14 @@
+---
+- name: Create temp directory
+  file: path={{ tmp_dir }} state=directory mode=0755 owner=test
+
+- name: Create IM Installation directory
+  file: path={{ iim_install_location }} state=directory owner=test mode=0755
+
+- name: Create logs directory
+  file: path={{ tmp_dir }}/logs state=directory mode=0755 owner=test
+- name: Extract IBM Installation Manager
+  unarchive:
+    src: "{{ iim_binary_location }}/{{ iim_binary_file }}"
+    dest: "{{ tmp_dir }}/"
+    copy: no

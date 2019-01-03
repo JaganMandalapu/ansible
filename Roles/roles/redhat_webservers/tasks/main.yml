@@ -1,0 +1,7 @@
+- name: Install Telnet
+  yum: pkg=telnet state=latest
+- name: Install lynx
+  yum: pkg=lynx state=latest
+- name: Install HTTPD
+  yum: pkg=httpd state=latest
+  notify: Restart HTTPD

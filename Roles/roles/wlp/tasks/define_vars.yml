@@ -1,0 +1,10 @@
+---
+- name: Is Installation Manager installed?
+  command: egrep {{ im_product_id }} {{ agent_data_location }}/installed.xml
+  register: iim_already_installed
+
+- name: Is WLP already installed?
+  command: egrep {{ wlp_version }} {{ agent_data_location }}/installed.xml
+  register: wlp_already_installed
+  ignore_errors: true
+

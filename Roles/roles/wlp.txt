@@ -1,0 +1,18 @@
+- Run on liberty hosts
+- Run as test user
+- Skip facts
+
+- Vars:
+  - im_dir
+  - wlp_dir
+  - im_share
+  - wlp_bin_file
+  - wlp_repo
+  - java_repo
+  - java_bin_file
+  - state
+
+- Tasks:
+  - Check if WLP is already installed
+  - Install/update Java and WLP
+  - 

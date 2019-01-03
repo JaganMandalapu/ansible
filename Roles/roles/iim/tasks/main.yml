@@ -1,0 +1,18 @@
+---
+- name: Define vars
+  include_tasks: define_vars.yml
+
+- name: Setup pre-reqs
+  include_tasks: prereq_iim.yml
+  become: yes
+  become_method: sudo
+  when: version_already_installed.rc != 0
+
+- name: Install IBM Installation Manager
+  include_tasks: install_iim.yml
+  when: version_already_installed.rc != 0
+
+- name: Cleanup
+  include_tasks: cleanup_iim.yml
+  become: yes
+  become_method: sudo

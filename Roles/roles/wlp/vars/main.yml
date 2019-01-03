@@ -1,0 +1,14 @@
+---
+im_dir: /opt/software/IBM/InstallationManager
+wlp_dir: /opt/software/IBM/WLP
+im_share: /opt/software/IBM/IMShare
+wlp_repo: /vagrant/18.0.0.2/com.ibm.websphere.liberty.ND.18.0.0.2.tar.gz 
+java_repo: /vagrant/JAVA/ibm-java-sdk-8.0-5.26-linux-x64-installmgr.zip
+state: install
+im_product_id: com.ibm.cic.agent
+java_product_id: com.ibm.java.jdk.v8
+wlp_product_id: com.ibm.websphere.liberty.ND
+java_version: 8.0.5026.20181120_0517
+wlp_version: 18.0.2.20180619_0403 
+tmp_dir: /tmp
+agent_data_location: /opt/software/IBM/AgentData

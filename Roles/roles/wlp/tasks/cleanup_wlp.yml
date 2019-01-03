@@ -1,0 +1,6 @@
+---
+- name: Clean up the temp binaries directory
+  file: path={{ tmp_dir }}/wlp state=absent
+
+- name: Clean up the temp binaries directory
+  file: path={{ tmp_dir }}/java state=absent

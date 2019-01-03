@@ -1,0 +1,14 @@
+---
+- hosts: apacheweb
+  user: test
+  sudo: yes
+  gather_facts: no
+  tasks:
+    - name: Running a dummy command
+      shell: ls -l /jagan
+      ignore_errors: yes
+    - name: Print Date
+      shell: date
+      register: date
+    - debug: var=date
+

@@ -1,0 +1,18 @@
+---
+- name: Define vars
+  include_tasks: define_vars.yml
+
+- name: Setup pre-reqs
+  include_tasks: prereq_wlp.yml
+  become: yes
+  become_method: sudo
+  when: wlp_already_installed.rc != 0
+
+- name: Install/Update WLP
+  include_tasks: install_wlp.yml
+  when: wlp_already_installed.rc != 0
+
+- name: Cleanup
+  include_tasks: cleanup_wlp.yml
+  become: yes
+  become_method: sudo

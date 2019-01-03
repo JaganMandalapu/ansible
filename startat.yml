@@ -1,0 +1,13 @@
+---
+- hosts: apacheweb
+  user: test
+  sudo: yes
+  tasks:
+    - name: Install HTTPD
+      yum: pkg=httpd state=latest
+    - name: Verify HTTPD version
+      command: httpd -v
+      register: version
+    - debug: var=version
+    - name: Restart HTTPD
+      command: systemctl restart httpd

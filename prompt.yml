@@ -1,0 +1,16 @@
+---
+- hosts: apacheweb
+  sudo: yes
+  user: test
+  connection: ssh
+  gather_facts: no
+  vars:
+    playbook_version: 0.1b
+  vars_prompt:
+    - name: packate_to_install
+      prompt: Enter the package name to be installed
+      default: telnet
+      private: no
+  tasks:
+    - name: Install {{ packate_to_install }}
+      yum: pkg={{ packate_to_install }} state=latest

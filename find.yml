@@ -1,0 +1,11 @@
+---
+- hosts: apacheweb
+  remote_user: test
+  become: yes
+  become_method: sudo 
+  gather_facts: no
+  tasks:
+  - name: Search the remore system /etc directory for the fstab file
+    find: paths="/etc" patterns="fstab"
+    register: result
+  - yaml: var=result
